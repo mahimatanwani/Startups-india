@@ -131,15 +131,13 @@ def app():
         text=" ".join(text) 
 
         return data, temp1, text
-
+    st.write(" [Go Back](https://startupanalysis.wixsite.com/home/home)")
     st.title('Startups in India Visualization')
     st.text("""
     This dataset has funding information of the Indian startups from January 2015 
     till recent 2020. It includes columns with the date funded, the city the 
     startup is based out of, the names of the funders, and the amount invested (in USD).
 
-    Note:This is just for educational purposes, as data is too ambiguous, 
-    it should not be used in other places.
     """)
 
     
@@ -154,6 +152,7 @@ def app():
     fig.data[0].marker.line.width = 3
     fig.data[0].marker.line.color = "black"  
     st.plotly_chart(fig)
+    
 
 
     st.subheader('Startups with Highest funding!')
@@ -165,7 +164,11 @@ def app():
     fig.data[0].marker.line.width = 3
     fig.data[0].marker.line.color = "black" 
     st.plotly_chart(fig)
+    st.write(" Investors from around the world have shown a growing interest in the Indian startup ecosystem, providing the necessary capital to fuel the growth of these companies.\n This has resulted in some of the largest funding rounds in the world, as investors seek to capitalize on the potential of India's rapidly growing market. The success of Indian startups with high funding can be attributed to a combination of factors, including the growing technology ecosystem, large market opportunity, and increasing availability of digital infrastructure and investment capital. From the above figure, we can figure out that as per 2020, Filpkart is having the highest funding of nearly 5 Billon USD and it is followed by Paytm with amount approximating to 3.2 Billion USD.")
+    st.write("")
+    st.write("")
 
+    
     st.subheader('Pie-chart for top 7 different type of Fundings!')
     typ=data["InvestmentType"].value_counts().head(7)
     colrs = ['gold', 'mediumturquoise', 'darkorange', 'lightgreen']
@@ -176,6 +179,15 @@ def app():
     fig.data[0].marker.line.color = "black"                
     fig.update_layout(height=600,autosize=False ,plot_bgcolor='rgb(275, 275, 275)')
     st.plotly_chart(fig)
+    st.write("•	Seed funding: Seed funding is an initial capital provided to a startup to help get it off the ground. This type of funding is typically used to develop a prototype, build a team, and validate the business idea.")
+    st.write("•	Angel funding: Angel funding is a type of funding provided by wealthy individuals or groups, known as angel investors. This funding is usually provided in the early stages of a startup and is often used to help the company scale and grow.")
+    st.write("•	Venture capital: Venture capital is a type of funding provided by institutional investors, such as venture capital firms. This funding is usually provided to startups with high growth potential and is used to help the company expand and achieve its growth objectives.")
+    st.write("•	Debt financing: Debt financing involves borrowing money from a lender, such as a bank or financial institution. This type of funding is usually used to finance specific projects or investments and is repaid with interest over a period of time.")
+    st.write("•	Private equity: Private equity is a type of funding provided by investors who buy and own shares in private companies, typically with the goal of helping the company grow and eventually sell their shares at a profit.")
+    st.write("•	Series A funding: Series A funding is a type of venture capital funding provided to startups that have already demonstrated market viability and are looking to scale their business.")
+    st.write("•	Series B funding: Series B funding is a type of venture capital funding provided to startups that have already achieved significant growth and are looking to expand their operations or enter new markets.")
+    st.write("")
+    st.write("")
 
     st.subheader('Top Investors!')
     top_filter = st.slider('Top N Investors', 3, 10, 5)  # min: 3, max: 10, default: 5
@@ -189,8 +201,14 @@ def app():
     fig.data[0].marker.line.width = 3
     fig.data[0].marker.line.color = "black" 
     st.plotly_chart(fig)
-    st.write("Mahima")
-
+    st.write("Ratan Tata: Ratan Tata is an Indian industrialist, philanthropist, and former chairman of Tata Sons, the holding company of the Tata Group. He is also an active angel investor and has invested in several startups in India and other countries.")
+    st.write("Indian Angel Network: Indian Angel Network (IAN) is an angel investor group based in India that invests in early-stage startups. The network has over 500 members and has invested in more than 150 startups in India and other countries.")
+    st.write("Lalaari Capital: Lalaari Capital is a venture capital firm based in Mumbai, India. The firm invests in early-stage startups in the technology and consumer sectors and has made several successful investments in India and other countries.")
+    st.write("Sequoia Capital: Sequoia Capital is a venture capital firm based in Menlo Park, California. The firm has been an early investor in several successful technology companies, including Apple, Google, and Airbnb.")
+    st.write("Group Angel Investors: Group Angel Investors is an angel investor group based in Spain that invests in early-stage startups. The group has made several successful investments in the technology, healthcare, and food sectors, among others.")
+    st.write("")
+    st.write("")
+    
     st.subheader('Top Cities with Highest number of Startups!')
     top_filter = st.slider('Top N Cities', 3, 10, 5)  # min: 3, max: 10, default: 10
     label=np.arange(0,top_filter)
@@ -202,6 +220,13 @@ def app():
     fig.data[0].marker.line.color = "black" 
     fig.update_layout(autosize=True,plot_bgcolor='rgb(275, 275, 275)')
     st.plotly_chart(fig)
+    st.write("As per 202, here are some of the top cities in India with the highest number of startups:")
+    st.write("•	NCR: NCR has a growing startup ecosystem, with a focus on technology, e-commerce, and education. The city has a large pool of talent, including engineers and business professionals, which has helped to fuel its startup growth.")
+    st.write("•	Bengaluru: Bengaluru is known as the startup capital of India, with many startups in sectors like technology, e-commerce, and healthcare. The city has a strong ecosystem of investors, mentors, and support organizations for startups.")
+    st.write("•	Mumbai: Mumbai is one of the largest cities in India and has a thriving startup ecosystem, with a focus on fintech, e-commerce, and logistics. The city is home to several leading venture capital firms and startup accelerators.")
+    st.write("•	Pune: Pune is a rapidly growing startup hub, with a focus on technology, healthcare, and manufacturing. The city has a large pool of talented engineers and a growing ecosystem of investors and support organizations for startups.")
+    st.write("•	Hyderabad: Hyderabad has emerged as a leading startup hub in India, with a focus on technology, healthcare, and biotech. The city is home to several top engineering colleges and research institutions, which has helped to attract talent and investment to the region.")
+    st.write("Other cities with a significant number of startups include Chennai, Ahmedabad, Kolkata, and Jaipur.")
 
 
     # st.subheader('Most common words in SubVertical using WordCloud!')
@@ -213,19 +238,6 @@ def app():
     # plt.show()
     # st.pyplot()
 
-    st.subheader("""
-
-
-
-
-
-
-
-
-
-    Hi there, if you have come so far, it shows your love for exploring things, this whole project is made using four open-source libraries pandas, numpy, plotly and streamlit. 
-    """)
-    st.subheader("Via - Satyampd(Username for Github, Kaggle and LinkedIn)")
     print("Run Completed")      
 
 
